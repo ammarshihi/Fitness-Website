@@ -1,0 +1,233 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/meal.css') }}">
+ 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    </head>
+    <body >
+   <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm py-2 ">
+  <div class="container-fluid">
+    
+    <a class="navbar-brand d-flex align-items-center" href="Home.html">
+      <img src="{{ url_for('static', filename='photo/fitnes_logo.png') }}" alt="Logo" width="140" class="me-2">
+      </a>
+ 
+    
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+      <ul class="navbar-nav fw-semibold">
+
+        <li class="nav-item mx-2">
+          <a class="nav-link active"  href="/"> HOME</a>
+        </li>
+        
+        <li class="nav-item mx-2">
+                    <a class="nav-link active" href="/calc">
+                         CALORIAS CALCULATOR
+                    </a>
+                </li>
+
+        <li class="nav-item mx-2">
+          <a class="nav-link active"  href="/contact"> CONTACT</a>
+        </li>
+
+        <li class="nav-item mx-2">
+          <a class="nav-link active" href="/favorites">
+            <i class="fas fa-heart"></i> FAVORITES
+          </a>
+        </li>
+         
+      </ul>
+
+      
+    </div>
+</nav>
+
+<header class="main-header">
+        <h1>Ultimate Fat Loss Weekly Plan</h1>
+    </header>
+
+    <div class="meal-plan-container">
+        
+        <section class="overview-section" style="position: relative;">
+            <div class="heart-icon" onclick="toggleHeart(event)">
+                <i class="far fa-heart"></i>
+            </div>
+            <h2> Your Goal: Calorie Deficit & High Protein</h2>
+            <p>This plan is strictly designed to promote fat loss by sustaining a moderate calorie deficit. We prioritize lean protein and fibrous vegetables to maximize satiety and preserve muscle mass while minimizing unnecessary sugars and high-calorie fats.</p>
+            <div class="macro-goals">
+                <p><strong>Daily Target Calories:</strong> 1800 kcal (Adjust based on BMR)</p>
+                <p><strong>Protein:</strong> 40% | <strong>Carbs:</strong> 35% | <strong>Fat:</strong> 25%</p>
+            </div>
+            
+        </section>
+
+        <section class="weekly-plan" style="position: relative;">
+            <div class="heart-icon" onclick="toggleHeart(event)">
+                <i class="far fa-heart"></i>
+            </div>
+            <h2> Fat Loss Weekly Breakdown</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Breakfast</th>
+                        <th>Lunch</th>
+                        <th>Dinner</th>
+                        <th>Snack</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monday</td>
+                        <td>3-Egg White Omelet with Spinach</td>
+                        <td>Large Chicken Salad with light vinaigrette</td>
+                        <td>Baked Cod with steamed green beans</td>
+                        <td>Small Greek yogurt (plain)</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>Protein Shake (whey/casein) and 1/2 Banana</td>
+                        <td>Tuna Salad (mixed with mustard/light mayo) & celery sticks</td>
+                        <td>Lean Ground Turkey Stir-fry with minimal oil and broccoli</td>
+                        <td>Handful of walnuts</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>Oatmeal (1/2 cup dry) with protein powder mixed in</td>
+                        <td>Leftover Turkey Stir-fry</td>
+                        <td>Chicken Breast with a large side of mixed salad</td>
+                        <td>Cottage Cheese (low fat)</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td>Scrambled Eggs (2 whole, 2 white) with whole-wheat toast (1 slice)</td>
+                        <td>Turkey slices roll-ups (in lettuce wraps)</td>
+                        <td>Pork Tenderloin and non-starchy vegetables</td>
+                        <td>Apple slices with 1 tbsp peanut butter</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>Protein Smoothie (spinach, berries, water, protein)</td>
+                        <td>Leftover Pork Tenderloin and vegetables</td>
+                        <td>Salmon (baked/grilled) with a baked sweet potato (small)</td>
+                        <td>Hard-boiled egg</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td>Greek Yogurt (plain) with 1/4 cup Granola and berries</td>
+                        <td>Black Bean Soup and a side of salsa</td>
+                        <td>Steak (Sirloin/Flank) with mushrooms and asparagus</td>
+                        <td>Protein Bar (low sugar)</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>Protein Pancakes (using protein powder)</td>
+                        <td>Leftover Steak/Mushrooms</td>
+                        <td>Large Chicken & Vegetable Skewers (no added sugar sauce)</td>
+                        <td>Carrots and 2 tbsp hummus</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="note-row">Tip: Prioritize water intake, especially before meals, and weigh your food for accuracy!</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+    </div>
+
+
+
+        <!-- FOOTER -->
+<footer class="bg-dark text-white py-5">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-md-4 mb-4">
+                <a class="navbar-brand d-flex align-items-center mb-3" href="Home.html">
+                    <img src="{{ url_for('static', filename='photo/fitnes_logo.png') }}" alt="Logo" width="120" class="me-2 filter-white">
+                </a>
+                <p class="text-white-50">
+                    Your personal tracker for strength, nutrition, and balance. Achieve your best self, body and mind.
+                </p>
+                <p class="text-white-50">© 2025 FitTrack Inc.</p>
+            </div>
+
+            <div class="col-md-2 col-6 mb-4">
+                <h5 class="text-white mb-3">Company</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+                    <li class="mb-2"><a href="careers.html" class="text-white-50 text-decoration-none">Careers</a></li>
+                    <li class="mb-2"><a href="blog.html" class="text-white-50 text-decoration-none">Blog</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-4 mb-4">
+                <h5 class="text-white mb-3">Connect</h5>
+                <div class="social-icons">
+                    <a href="#" class="text-white-50 me-3 fs-4"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white-50 me-3 fs-4"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white-50 me-3 fs-4"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white-50 fs-4"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+        
+<script>
+function toggleHeart(event) {
+    event.stopPropagation();
+    
+    const heart = event.currentTarget.querySelector('i');
+    const currentPage = window.location.pathname.split('/').pop();
+    
+    // Get current favorites
+    let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    
+    if (favorites.includes(currentPage)) {
+        // Remove from favorites
+        favorites = favorites.filter(fav => fav !== currentPage);
+        heart.classList.remove('fas');
+        heart.classList.add('far');
+    } else {
+        // Add to favorites
+        favorites.push(currentPage);
+        heart.classList.remove('far');
+        heart.classList.add('fas');
+    }
+    
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+// Load favorites state on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname.split('/').pop();
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    
+    if (favorites.includes(currentPage)) {
+        document.querySelectorAll('.heart-icon i').forEach(heart => {
+            heart.classList.remove('far');
+            heart.classList.add('fas');
+        });
+    }
+
+    // Check if user is logged in
+    if (localStorage.getItem('registered') === 'true') {
+        const navbarNav = document.querySelector('.navbar-nav.ms-auto');
+        if (navbarNav) {
+            navbarNav.innerHTML = '<li class="nav-item"><a class="btn btn-primary" href="userdashboard.html"><i class="fas fa-user"></i> DASHBOARD</a></li>';
+        }
+    }
+});
+</script>    
+    </body>
+</html>

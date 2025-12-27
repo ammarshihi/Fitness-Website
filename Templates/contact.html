@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - FitLife Gym</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm py-2 ">
+  <div class="container-fluid">
+    
+    <a class="navbar-brand d-flex align-items-center" href="Home.html">
+      <img src="{{ url_for('static', filename='photo/fitnes_logo.png') }}" alt="Logo" width="140" class="me-2">
+      </a>
+ 
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto fw-semibold" style="margin-left: 150px;">
+
+        <li class="nav-item mx-2">
+          <a class="nav-link active"  href="/"> HOME</a>
+        </li>
+
+       
+        <li class="nav-item mx-2">
+                    <a class="nav-link active" href="/calc">
+                         CALORIAS CALCULATOR
+                    </a>
+                </li>
+
+        <li class="nav-item mx-2">
+          <a class="nav-link active"  href="/contact"> CONTACT</a>
+        </li>
+
+        <li class="nav-item mx-2">
+          <a class="nav-link active" href="/favorites">
+            <i class="fas fa-heart"></i> FAVORITES
+          </a>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+         <li class="nav-item">
+                    <a class="btn btn-primary" href="/register">
+                        REGISTER
+                    </a>
+                </li>
+      </ul>
+    </div>
+</nav>
+
+
+
+
+    <header>
+        <h1>Contact Us</h1>
+        <p >We're here to help! Get in touch with FitLife Gym</p>
+    </header>
+
+      <!-- NAVBAR -->
+
+
+    <div class="container my-5">
+        <!-- Send Message Form (Full Width, Top) -->
+        <div class="contact-section">
+            <h2 class="text-warning mb-4 text-center">Send us a Message</h2>
+            <form id="contactForm" onsubmit="return submitContact()">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    </div>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="6" placeholder="Write your message here..." required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-custom btn-lg">Send Message</button>
+                </div>
+            </form>
+        </div>
+        </div>
+
+       
+
+    <!-- FOOTER -->
+<footer class="bg-dark text-white py-5">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-md-4 mb-4">
+                <a class="navbar-brand d-flex align-items-center mb-3" href="Home.html">
+                    <img src="{{ url_for('static', filename='photo/fitnes_logo.png') }}" alt="Logo" width="120" class="me-2 filter-white">
+                </a>
+                <p class="text-white-50">
+                    Your personal tracker for strength, nutrition, and balance. Achieve your best self, body and mind.
+                </p>
+                <p class="text-white-50">© 2025 FitTrack Inc.</p>
+            </div>
+
+            <div class="col-md-2 col-6 mb-4">
+                <h5 class="text-white mb-3">Company</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+                    <li class="mb-2"><a href="careers.html" class="text-white-50 text-decoration-none">Careers</a></li>
+                    <li class="mb-2"><a href="blog.html" class="text-white-50 text-decoration-none">Blog</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-4 mb-4">
+                <h5 class="text-white mb-3">Connect</h5>
+                <div class="social-icons">
+                    <a href="#" class="text-white-50 me-3 fs-4"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white-50 me-3 fs-4"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white-50 me-3 fs-4"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white-50 fs-4"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+    <!-- Bootstrap JS -->
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    
+    <script>
+        function submitContact() {
+            alert('Thank you! Your message has been sent.');
+            document.getElementById('contactForm').reset();
+            return false;
+        }
+
+        // Check if user is logged in
+        if (localStorage.getItem('registered') === 'true') {
+            const registerBtn = document.querySelector('.navbar .btn-primary[href="register.html"]');
+            if (registerBtn && registerBtn.closest('li')) {
+                const li = registerBtn.closest('li');
+                li.innerHTML = '<a class="btn btn-primary" href="userdashboard.html"><i class="fas fa-user"></i> DASHBOARD</a>';
+            }
+        }
+    </script>
+</body>
+</html>

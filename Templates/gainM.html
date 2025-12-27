@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gain Muscle </title>
+    
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/workouts.css') }}">
+
+</head>
+<body>
+  <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm py-2 ">
+  <div class="container-fluid">
+    
+    <a class="navbar-brand d-flex align-items-center" href="Home.html">
+      <img src="{{ url_for('static', filename='photo/fitnes_logo.png') }}" alt="Logo" width="140" class="me-2">
+      </a>
+ 
+    
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+      <ul class="navbar-nav fw-semibold">
+
+        <li class="nav-item mx-2">
+          <a class="nav-link active"  href="/"> HOME</a>
+        </li>
+        
+        <li class="nav-item mx-2">
+                    <a class="nav-link active" href="/calc">
+                         CALORIAS CALCULATOR
+                    </a>
+                </li>
+
+        <li class="nav-item mx-2">
+          <a class="nav-link active"  href="/contact"> CONTACT</a>
+        </li>
+
+        <li class="nav-item mx-2">
+          <a class="nav-link active" href="/favorites">
+            <i class="fas fa-heart"></i> FAVORITES
+          </a>
+        </li>
+         
+      </ul>
+
+      
+    </div>
+</nav>
+
+
+    <header class="text-center py-5">
+        <h1> Muscle Gain Programs</h1>
+        <p class="lead">Targeted strength and hypertrophy routines for building size and power.</p>
+    </header>
+
+    <div class="container my-5">
+        <h2 class="text-center mb-5 ">Full Body & Strength Routines</h2>
+        
+        <h3 class=" mb-4">Upper Body Builders</h3>
+        <div class="row g-4 mb-5">
+            <div class="col-md-6 col-lg-4">
+                <div class="card workout-card text-white">
+                    <div class="heart-icon" onclick="toggleHeart(event)">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <img src="https://cdn.muscleandstrength.com/sites/default/files/muscular_man_doing_a_bench_press.jpg" class="card-img-top workout-img" alt="Bench Press">
+                    <div class="card-body">
+                        <h5 class="card-title">Barbell Bench Press</h5>
+                        <p class="card-text">The fundamental chest, shoulders, and triceps builder.</p>
+                        <p><strong>Sets/Reps:</strong> 5 sets of 5-8 reps</p>
+                        <p><strong>Benefits:</strong> Maximize upper body strength and mass.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card workout-card text-white">
+                    <div class="heart-icon" onclick="toggleHeart(event)">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <img src="https://www.mensfitness.com/.image/w_3840,q_auto:good,c_limit/MjEyMzQ3NDkyMzA4NjI0OTA1/handsome-young-man-doing-bench-press-workout-in-gym-fitness-motivation-sports-lifestyle-health-athletic-body-body-positive-film-grain-selective-focus.jpg" class="card-img-top workout-img" alt="Pull-Ups">
+                    <div class="card-body">
+                        <h5 class="card-title">Weighted Pull-Ups</h5>
+                        <p class="card-text">Intense back, biceps, and core development.</p>
+                        <p><strong>Sets/Reps:</strong> 4 sets of 5-10 reps (max effort)</p>
+                        <p><strong>Benefits:</strong> Adds width and thickness to the back.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card workout-card text-white ">
+                    <div class="heart-icon" onclick="toggleHeart(event)">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <img src="{{ url_for('static', filename='photo/barbell.png') }}" class="card-img-top workout-img" alt="Barbell Curl">
+                    <div class="card-body">
+                        <h5 class="card-title">Barbell Bicep Curls</h5>
+                        <p class="card-text">Direct isolation for peak arm growth.</p>
+                        <p><strong>Sets/Reps:</strong> 3 sets of 8-12 reps</p>
+                        <p><strong>Benefits:</strong> Hypertrophy focus on biceps peak.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class=" mb-4">Lower Body & Power</h3>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card workout-card text-white">
+                    <div class="heart-icon" onclick="toggleHeart(event)">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <img src="https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2019/02/1109-Barbell-Back-Squat-John-Gaines.jpg?quality=86&strip=all" class="card-img-top workout-img" alt="Barbell Squat">
+                    <div class="card-body">
+                        <h5 class="card-title">Heavy Barbell Squat</h5>
+                        <p class="card-text">The ultimate exercise for building leg mass.</p>
+                        <p><strong>Sets/Reps:</strong> 4 sets of 5-8 reps</p>
+                        <p><strong>Benefits:</strong> Drives overall strength and quad/glute growth.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card workout-card text-white">
+                    <div class="heart-icon" onclick="toggleHeart(event)">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/bgtmsq-67fe604f8362b.png?crop=1xw:0.8793628246753247xh;0,0.216xh" class="card-img-top workout-img" alt="Deadlift">
+                    <div class="card-body">
+                        <h5 class="card-title">Conventional Deadlift</h5>
+                        <p class="card-text">Maximal posterior chain and full-body power.</p>
+                        <p><strong>Sets/Reps:</strong> 3 sets of 3-5 reps</p>
+                        <p><strong>Benefits:</strong> Increases density and raw strength.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card workout-card text-white ">
+                    <div class="heart-icon" onclick="toggleHeart(event)">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/powerful-coach-recording-fitness-lesson-royalty-free-image-1666280251.png?crop=0.890xw:1.00xh;0.110xw,0&resize=768:*" class="card-img-top workout-img" alt="Calf Raise">
+                    <div class="card-body">
+                        <h5 class="card-title">Standing Calf Raises</h5>
+                        <p class="card-text">High-intensity isolation for calf hypertrophy.</p>
+                        <p><strong>Sets/Reps:</strong> 4 sets of 15-20 reps</p>
+                        <p><strong>Benefits:</strong> Target the gastrocnemius muscle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white py-5">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-md-4 mb-4">
+                <a class="navbar-brand d-flex align-items-center mb-3" href="/">
+                    <img src="{{ url_for('static', filename='photo/fitnes_logo.png') }}" alt="Logo" width="120" class="me-2 filter-white">
+                </a>
+                <p class="text-white-50">
+                    Your personal tracker for strength, nutrition, and balance. Achieve your best self, body and mind.
+                </p>
+                <p class="text-white-50">© 2025 FitTrack Inc.</p>
+            </div>
+
+            <div class="col-md-2 col-6 mb-4">
+                <h5 class="text-white mb-3">Company</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+                    <li class="mb-2"><a href="careers.html" class="text-white-50 text-decoration-none">Careers</a></li>
+                    <li class="mb-2"><a href="blog.html" class="text-white-50 text-decoration-none">Blog</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-4 mb-4">
+                <h5 class="text-white mb-3">Connect</h5>
+                <div class="social-icons">
+                    <a href="#" class="text-white-50 me-3 fs-4"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white-50 me-3 fs-4"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white-50 me-3 fs-4"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white-50 fs-4"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+        
+        <script>
+            function toggleHeart(event) {
+                event.stopPropagation();
+                
+                const heart = event.currentTarget.querySelector('i');
+                const currentPage = window.location.pathname.split('/').pop();
+                
+                // Get current favorites
+                let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+                
+                if (favorites.includes(currentPage)) {
+                    // Remove from favorites
+                    favorites = favorites.filter(fav => fav !== currentPage);
+                    heart.classList.remove('fas');
+                    heart.classList.add('far');
+                } else {
+                    // Add to favorites
+                    favorites.push(currentPage);
+                    heart.classList.remove('far');
+                    heart.classList.add('fas');
+                }
+                
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+            }
+
+            // Load favorites state on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                const currentPage = window.location.pathname.split('/').pop();
+                const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+                
+                if (favorites.includes(currentPage)) {
+                    document.querySelectorAll('.heart-icon i').forEach(heart => {
+                        heart.classList.remove('far');
+                        heart.classList.add('fas');
+                    });
+                }
+
+                // Check if user is logged in
+                if (localStorage.getItem('registered') === 'true') {
+                    const navbarNav = document.querySelector('.navbar-nav.ms-auto');
+                    if (navbarNav) {
+                        navbarNav.innerHTML = '<li class="nav-item"><a class="btn btn-primary" href="userdashboard.html"><i class="fas fa-user"></i> DASHBOARD</a></li>';
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

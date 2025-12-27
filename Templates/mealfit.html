@@ -1,0 +1,208 @@
+<html>
+    <head>
+    
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/meal.css') }}">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    </head>
+    <body >
+     <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm py-2 ">
+  <div class="container-fluid">
+    
+    <a class="navbar-brand d-flex align-items-center" href="Home.html">
+      <img src="{{ url_for('static', filename='photo/fitnes_logo.png') }}" alt="Logo" width="140" class="me-2">
+      </a>
+ 
+    
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+      <ul class="navbar-nav fw-semibold">
+
+        <li class="nav-item mx-2">
+          <a class="nav-link active"  href="/"> HOME</a>
+        </li>
+        
+        <li class="nav-item mx-2">
+                    <a class="nav-link active" href="/calc">
+                         CALORIAS CALCULATOR
+                    </a>
+                </li>
+
+        <li class="nav-item mx-2">
+          <a class="nav-link active"  href="/contact"> CONTACT</a>
+        </li>
+
+        <li class="nav-item mx-2">
+          <a class="nav-link active" href="/favorites">
+            <i class="fas fa-heart"></i> FAVORITES
+          </a>
+        </li>
+         
+      </ul>
+
+      
+    </div>
+</nav>
+
+<header class="main-header">
+        <h1>Stay Fit Weekly Meal Plan</h1>
+    </header>
+
+    <div class="meal-plan-container">
+        
+        <section class="overview-section" style="position: relative;">
+            <div class="heart-icon" onclick="toggleHeart(event)">
+                <i class="far fa-heart"></i>
+            </div>
+            <h2> Your Goal: Maintain & Energize</h2>
+            <p>This plan is designed for balanced nutrition, aiming for steady energy levels throughout your day while helping you maintain your current fitness level. Focus on lean protein, complex carbs, and plenty of vegetables.</p>
+            <div class="macro-goals">
+                <p><strong>Daily Target Calories:</strong> 2200 kcal</p>
+                <p><strong>Protein:</strong> 30% | <strong>Carbs:</strong> 45% | <strong>Fat:</strong> 25%</p>
+            </div>
+        </section>
+
+        <section class="weekly-plan" style="position: relative;">
+            <div class="heart-icon" onclick="toggleHeart(event)">
+                <i class="far fa-heart"></i>
+            </div>
+            <h2> Weekly Meal Breakdown</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Breakfast</th>
+                        <th>Lunch</th>
+                        <th>Dinner</th>
+                        <th>Snack</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monday</td>
+                        <td>Oatmeal with berries</td>
+                        <td>Chicken salad with mixed greens</td>
+                        <td>Salmon with roasted asparagus</td>
+                        <td>Apple slices</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>Scrambled eggs & whole-wheat toast</td>
+                        <td>Lentil soup and a side salad</td>
+                        <td>Turkey chili (bean-heavy)</td>
+                        <td>Handful of almonds</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>Greek yogurt with granola</td>
+                        <td>Leftover Salmon/Asparagus</td>
+                        <td>Stir-fry with brown rice & tofu</td>
+                        <td>Protein shake</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="note-row">**Note:** Drink at least 8 glasses of water daily. Feel free to swap vegetables!</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+    </div>
+
+
+
+
+
+        <!-- FOOTER -->
+<footer class="bg-dark text-white py-5">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-md-4 mb-4">
+                <a class="navbar-brand d-flex align-items-center mb-3" href="Home.html">
+                    <img src="{{ url_for('static', filename='photo/fitnes_logo.png') }}" alt="Logo" width="120" class="me-2 filter-white">
+                </a>
+                <p class="text-white-50">
+                    Your personal tracker for strength, nutrition, and balance. Achieve your best self, body and mind.
+                </p>
+                <p class="text-white-50">© 2025 FitTrack Inc.</p>
+            </div>
+
+            <div class="col-md-2 col-6 mb-4">
+                <h5 class="text-white mb-3">Company</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+                    <li class="mb-2"><a href="careers.html" class="text-white-50 text-decoration-none">Careers</a></li>
+                    <li class="mb-2"><a href="blog.html" class="text-white-50 text-decoration-none">Blog</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-4 mb-4">
+                <h5 class="text-white mb-3">Connect</h5>
+                <div class="social-icons">
+                    <a href="#" class="text-white-50 me-3 fs-4"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white-50 me-3 fs-4"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white-50 me-3 fs-4"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white-50 fs-4"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+
+        
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+
+<script>
+function toggleHeart(event) {
+    event.stopPropagation();
+    
+    const heart = event.currentTarget.querySelector('i');
+    const currentPage = window.location.pathname.split('/').pop();
+    
+    // Get current favorites
+    let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    
+    if (favorites.includes(currentPage)) {
+        // Remove from favorites
+        favorites = favorites.filter(fav => fav !== currentPage);
+        heart.classList.remove('fas');
+        heart.classList.add('far');
+    } else {
+        // Add to favorites
+        favorites.push(currentPage);
+        heart.classList.remove('far');
+        heart.classList.add('fas');
+    }
+    
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+// Load favorites state on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname.split('/').pop();
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    
+    if (favorites.includes(currentPage)) {
+        document.querySelectorAll('.heart-icon i').forEach(heart => {
+            heart.classList.remove('far');
+            heart.classList.add('fas');
+        });
+    }
+
+    // Check if user is logged in
+    if (localStorage.getItem('registered') === 'true') {
+        const navbarNav = document.querySelector('.navbar-nav.ms-auto');
+        if (navbarNav) {
+            navbarNav.innerHTML = '<li class="nav-item"><a class="btn btn-primary" href="userdashboard.html"><i class="fas fa-user"></i> DASHBOARD</a></li>';
+        }
+    }
+});
+</script>    
+    </body>
+</html>

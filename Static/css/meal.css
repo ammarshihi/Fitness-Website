@@ -1,0 +1,174 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+        min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('https://t3.ftcdn.net/jpg/14/38/98/68/360_F_1438986864_q2BfKmyIBtz2sjk6efJUtK4QYoozGOHX.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: #ffffff; 
+    font-family: 'Arial', sans-serif;
+}
+
+
+.main-header {
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.main-header h1 {
+    color: #ff6600; 
+    font-size: 2.5em;
+}
+
+
+.meal-plan-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+
+.overview-section {
+    
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-left: 5px solid #ff6600; 
+}
+
+.overview-section h2 {
+    color: #ff6600; 
+    margin-top: 0;
+}
+
+.overview-section p {
+    color: #f0f0f0; 
+}
+
+.macro-goals {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 0.15); 
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.macro-goals p strong {
+    color: #ff6600; 
+}
+
+
+.weekly-plan {
+   
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.weekly-plan h2 {
+    color: #ff6600;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead th {
+    background-color: #ff6600; 
+    color: #ffffff;
+    padding: 15px;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 1em;
+    border: none;
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05); 
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 102, 0, 0.2); 
+    cursor: pointer;
+}
+
+
+tbody td:first-child {
+    font-weight: bold;
+    color: #ff6600; 
+}
+
+.note-row {
+    background-color: rgba(255, 102, 0, 0.3) !important; 
+    font-style: italic;
+    text-align: center;
+    padding: 15px !important;
+    color: #ffffff;
+}
+
+
+
+
+    
+    tbody tr td:nth-of-type(3):before { content: "Lunch"; }
+    tbody tr td:nth-of-type(4):before { content: "Dinner"; }
+    tbody tr td:nth-of-type(5):before { content: "Snack"; }
+    
+    tbody tr td:first-child:before { content: ""; }
+    tbody tr td:first-child { 
+        text-align: center; 
+        background-color: rgba(255, 102, 0, 0.2); 
+        padding: 10px;
+        border-bottom: none;
+        border-radius: 8px 8px 0 0;
+    }
+    .heart-icon {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .heart-icon:hover {
+        background: rgba(255, 102, 0, 0.9);
+        transform: scale(1.1);
+    }
+
+    .heart-icon i {
+        color: #ff6600;
+        font-size: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .heart-icon i.fas {
+        color: #ff3333;
+    }

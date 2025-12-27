@@ -1,0 +1,97 @@
+
+   
+        body, html {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://t3.ftcdn.net/jpg/07/66/83/20/360_F_766832099_3JTcoJOv5cGp8AyNKKXbUeKRsfksQloA.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+        }
+        header {
+            text-align: center;
+            padding: 80px 20px;
+           
+        }
+        h1, h2, h3 {
+            color: #ffffff;
+        }
+        .nav-tabs .nav-link {
+            color: #ffffff;
+            border: none;
+            font-weight: bold;
+        }
+        .nav-tabs .nav-link.active {
+            background: rgba(255,102,0,0.5);
+            color: #ffffff;
+            border-bottom: 3px solid #ff6600;
+        }
+        .workout-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            height: 100%;
+        }
+        .workout-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff6600;
+            box-shadow: 0 20px 40px rgba(255, 102, 0, 0.4);
+        }
+        .workout-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .heart-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        .heart-icon:hover {
+            background: rgba(255, 102, 0, 0.9);
+            transform: scale(1.1);
+        }
+        .heart-icon i {
+            color: #ff6600;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        .heart-icon i.fas {
+            color: #ff3333;
+        }
+        .btn-custom {
+            background: #ff6600;
+            border: none;
+        }
+        .btn-custom:hover {
+            background: #fff;
+            color: #ff6600;
+        }
+        footer {
+            background: rgba(0,0,0,0.7);
+            padding: 30px;
+            text-align: center;
+            margin-top: 100px;
+        }
+        a {
+            color: #ff6600;
+        }
+        a:hover {
+            color: #ffffff;
+        }
+  

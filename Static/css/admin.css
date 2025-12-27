@@ -1,0 +1,57 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Background Image */
+.background {
+    background-image: url('https://wallpapers.com/images/hd/professional-gym-interior-vomd24bjg2wxd65f.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Dark Overlay */
+.overlay {
+    background-color: rgba(0, 0, 0, 0.65);
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+/* Back Icon */
+.back-icon {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* Admin Card */
+.admin-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    width: 100%;
+    max-width: 600px;
+    color: white;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+.admin-card input {
+    background: rgba(255,255,255,0.9);
+}
+
+.admin-card h4 {
+    font-weight: bold;
+}
+.admin-card button {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+

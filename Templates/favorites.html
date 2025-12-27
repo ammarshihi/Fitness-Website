@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorites - FitLife Gym</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .favorites-header {
+            text-align: center;
+            padding: 80px 20px 40px;
+        }
+        .favorites-header h1 {
+            color: #ff6600;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .empty-state i {
+            font-size: 100px;
+            color: #ff6600;
+            opacity: 0.3;
+            margin-bottom: 30px;
+        }
+        .empty-state h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        .empty-state p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+        }
+        .favorite-item {
+            position: relative;
+        }
+        .remove-favorite {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 0, 0, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        .remove-favorite:hover {
+            background: rgba(255, 0, 0, 1);
+            transform: scale(1.1);
+        }
+        .remove-favorite i {
+            color: #fff;
+            font-size: 20px;
+        }
+        .section-title {
+            color: #ff6600;
+            font-size: 2rem;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #ff6600;
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm py-2">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="{{ url_for('static', filename='photo/fitnes_logo.png') }}" alt="Logo" width="140" class="me-2">
+            </a>
+
+            <button class="navbar-toggler bg-black" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto fw-semibold">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="/">HOME</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="Home.html#workout-plans">WORKOUTS</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="Home.html#meal-plans">MEAL PLANS</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="/calc">CALORIES CALCULATOR</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="/contact">CONTACT</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="/packages">PACKAGES</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link active" href="/favorites">
+                            <i class="fas fa-heart"></i> FAVORITES
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="favorites-header">
+        <h1><i class="fas fa-heart"></i> My Favorites</h1>
+        <p class="lead text-white-50">Your saved workouts and meal plans</p>
+    </div>
+
+    <div class="container my-5">
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <i class="far fa-heart"></i>
+            <h3>No Favorites Yet</h3>
+            <p>Start adding your favorite workouts and meal plans by clicking the heart icon!</p>
+            <a href="/" class="btn btn-primary mt-3" style="background: #ff6600; border: none; padding: 12px 30px;">
+                Browse Workouts & Meals
+            </a>
+        </div>
+
+        <!-- Workout Favorites -->
+        <div id="workoutSection" style="display: none;">
+            <h2 class="section-title"><i class="fas fa-dumbbell"></i> Favorite Workouts</h2>
+            <div class="row g-4" id="workoutFavorites"></div>
+        </div>
+
+        <!-- Meal Favorites -->
+        <div id="mealSection" style="display: none;">
+            <h2 class="section-title"><i class="fas fa-utensils"></i> Favorite Meal Plans</h2>
+            <div class="row g-4" id="mealFavorites"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <a class="navbar-brand d-flex align-items-center mb-3" href="/">
+                        <img src="{{ url_for('static', filename='photo/fitnes_logo.png') }}" alt="Logo" width="120" class="me-2 filter-white">
+                    </a>
+                    <p class="text-white-50">Your personal tracker for strength, nutrition, and balance.</p>
+                    <p class="text-white-50">© 2025 FitTrack Inc.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <div class="social-icons">
+                        <a href="#" class="text-white-50 me-3 fs-4"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white-50 me-3 fs-4"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white-50 me-3 fs-4"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white-50 fs-4"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script>
+        const favoriteItems = {
+            'gainM.html': {
+                title: 'Gain Muscle',
+                image: 'photo/gain muscle.jpeg',
+                badge: 'Easy',
+                badgeClass: 'bg-success',
+                type: 'workout'
+            },
+            'losefat.html': {
+                title: 'Lose Fats',
+                image: 'photo/lose fats.jpeg',
+                badge: 'Intermediate',
+                badgeClass: 'bg-warning text-dark',
+                type: 'workout'
+            },
+            'gainlose.html': {
+                title: 'Gain Muscle & Lose Fats',
+                image: 'photo/gl fats.jpeg',
+                badge: 'Difficult',
+                badgeClass: 'bg-danger',
+                type: 'workout'
+            },
+            'mealfit.html': {
+                title: 'STAY FIT',
+                image: 'photo/stay fit meal.jpeg',
+                type: 'meal'
+            },
+            'meallose.html': {
+                title: 'Lose Fats',
+                image: 'photo/lose fats meal.jpeg',
+                type: 'meal'
+            }
+        };
+
+        function loadFavorites() {
+            const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+            
+            if (favorites.length === 0) {
+                document.getElementById('emptyState').style.display = 'block';
+                return;
+            }
+
+            const workoutFavs = favorites.filter(fav => favoriteItems[fav]?.type === 'workout');
+            const mealFavs = favorites.filter(fav => favoriteItems[fav]?.type === 'meal');
+
+            if (workoutFavs.length > 0) {
+                document.getElementById('workoutSection').style.display = 'block';
+                const container = document.getElementById('workoutFavorites');
+                container.innerHTML = workoutFavs.map(fav => createFavoriteCard(fav, favoriteItems[fav])).join('');
+            }
+
+            if (mealFavs.length > 0) {
+                document.getElementById('mealSection').style.display = 'block';
+                const container = document.getElementById('mealFavorites');
+                container.innerHTML = mealFavs.map(fav => createFavoriteCard(fav, favoriteItems[fav])).join('');
+            }
+        }
+
+        function createFavoriteCard(url, item) {
+            return `
+                <div class="col-lg-4 col-md-6">
+                    <div class="item bg-white p-3 rounded shadow-sm text-center position-relative favorite-item">
+                        <div class="remove-favorite" onclick="removeFavorite('${url}')">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <a href="${url}" class="text-decoration-none">
+                            <img class="img-fluid mb-3 card-img-top" src="${item.image}" alt="${item.title}">
+                            ${item.badge ? `<span class="badge ${item.badgeClass} mb-2">${item.badge}</span>` : ''}
+                            <h4 class="text-dark">${item.title}</h4>
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function removeFavorite(url) {
+            let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+            favorites = favorites.filter(fav => fav !== url);
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            location.reload();
+        }
+
+        // Load favorites on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFavorites();
+
+            // Check if user is logged in
+            if (localStorage.getItem('registered') === 'true') {
+                const navbarNav = document.querySelector('.navbar-nav.ms-auto');
+                if (navbarNav) {
+                    navbarNav.innerHTML = '<li class="nav-item"><a class="btn btn-primary" href="userdashboard.html"><i class="fas fa-user"></i> DASHBOARD</a></li>';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
